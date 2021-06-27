@@ -31,6 +31,9 @@ function App() {
 
   const [text,setText] = useState("");
   const [checked,setChecked] = useState();
+  const [color, setColor] = useState("#000000");
+  const [date,setDate] = useState(new Date());
+  const [email,setEmail] = useState("");
 
   const handleTextChange = (e) =>{
     setText(e.target.value);
@@ -41,7 +44,16 @@ function App() {
   const handleCheckbox = (e) => {
     setChecked(!e.target.checked);
   }
-
+  const handleColor = (e) => {
+    setColor(e.target.value);
+    console.log(color);
+  }
+  const handleDate = (e) => {
+    setDate(e.target.value);
+  }
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  }
 
 
   return (
@@ -64,17 +76,17 @@ function App() {
 
         <label>
           Color:
-          <input type="color"  />
+          <input type="color" value={color} onChange={handleColor}/>
         </label><br/><br/>
 
         <label>
           Date:
-          <input type="date" />
+          <input type="date" value={date} onChange={handleDate}/>
         </label><br/><br/>
 
         <label>
           Email:
-          <input type="email" />
+          <input type="email" value={email} onChange={handleEmail}/>
         </label><br/><br/>
 
         <label>
