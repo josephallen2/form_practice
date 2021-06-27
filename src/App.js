@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {useState} from 'react';
 /*
 
     <input type="button">
@@ -29,12 +29,19 @@ import './App.css';
 */
 
 function App() {
+
+  const [text,setText] = useState("");
+  const handleChange = (e) =>{
+    setText(e.target.value);
+  }
+
+
   return (
     <div className="App">
       <form>
         <label>
           Text Field:
-          <input type="text" name="name" />
+          <input type="text" value={text} onChange={handleChange}/>
         </label><br/><br/>
 
         <label>
