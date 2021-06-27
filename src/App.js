@@ -66,11 +66,12 @@ function App() {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   }
+  const handleSubmit = (e) => {}
 
 
   return (
     <div className="App">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           Text Field:
           <input type="text" value={text} name="text" onChange={handleTextChange}/>
