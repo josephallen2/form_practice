@@ -30,6 +30,7 @@ import {useState} from 'react';
 function App() {
 
   const [text,setText] = useState("");
+  const [checked,setChecked] = useState();
 
   const handleTextChange = (e) =>{
     setText(e.target.value);
@@ -37,6 +38,10 @@ function App() {
   const handleClick = (e) => {
     alert("Button was clicked");
   }
+  const handleCheckbox = (e) => {
+    setChecked(!e.target.checked);
+  }
+
 
 
   return (
@@ -53,8 +58,8 @@ function App() {
         </label><br/><br/>
 
         <label>
-          checkbox:
-          <input type="checkbox" />
+          Checkbox:
+          <input type="checkbox" value={checked} onChange={handleCheckbox} />
         </label><br/><br/>
 
         <label>
