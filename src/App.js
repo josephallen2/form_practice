@@ -1,5 +1,6 @@
 import './App.css';
 import {useState} from 'react';
+import axios from 'axios';
 /*
 
     <input type="button">
@@ -45,7 +46,7 @@ function App() {
     alert("Button was clicked");
   }
   const handleCheckbox = (e) => {
-    setChecked(!e.target.checked);
+    setChecked(e.target.checked);
   }
   const handleColor = (e) => {
     setColor(e.target.value);
@@ -66,7 +67,18 @@ function App() {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   }
-  const handleSubmit = (e) => {}
+  const handleSubmit = (e) => {
+    let data = {text,checked,color,date,email,file,number,password};
+
+    axios.post('http://localhost:8080/form',data)
+    .then(function (response){
+      console.log(response);
+    })
+    .catch(function (error){
+        console.log(error);
+    });
+    e.preventDefault();
+  }
 
 
   return (
