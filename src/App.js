@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
 /*
@@ -31,8 +30,12 @@ import {useState} from 'react';
 function App() {
 
   const [text,setText] = useState("");
-  const handleChange = (e) =>{
+
+  const handleTextChange = (e) =>{
     setText(e.target.value);
+  }
+  const handleClick = (e) => {
+    alert("Button was clicked");
   }
 
 
@@ -41,12 +44,12 @@ function App() {
       <form>
         <label>
           Text Field:
-          <input type="text" value={text} onChange={handleChange}/>
+          <input type="text" value={text} name="text" onChange={handleTextChange}/>
         </label><br/><br/>
 
         <label>
           Button:
-          <input type="button" value="Click Me!" />
+          <input type="button" value="Click Me!" onClick={handleClick}/>
         </label><br/><br/>
 
         <label>
