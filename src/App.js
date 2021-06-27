@@ -34,6 +34,9 @@ function App() {
   const [color, setColor] = useState("#000000");
   const [date,setDate] = useState(new Date());
   const [email,setEmail] = useState("");
+  const [file,setFile] = useState("");
+  const [number,setNumber] = useState(0);
+  const [password,setPassword] = useState("");
 
   const handleTextChange = (e) =>{
     setText(e.target.value);
@@ -54,6 +57,15 @@ function App() {
   const handleEmail = (e) => {
     setEmail(e.target.value);
   }
+  const handleFile = (e) => {
+    setFile(e.target.value);
+  }
+  const handleNumber = (e) => {
+    setNumber(e.target.value);
+  }
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  }
 
 
   return (
@@ -66,58 +78,55 @@ function App() {
 
         <label>
           Button:
-          <input type="button" value="Click Me!" onClick={handleClick}/>
+          <input type="button" value="Click Me!" name="button" onClick={handleClick}/>
         </label><br/><br/>
 
         <label>
           Checkbox:
-          <input type="checkbox" value={checked} onChange={handleCheckbox} />
+          <input type="checkbox" value={checked} name="checkbox" onChange={handleCheckbox} />
         </label><br/><br/>
 
         <label>
           Color:
-          <input type="color" value={color} onChange={handleColor}/>
+          <input type="color" value={color} name="color" onChange={handleColor}/>
         </label><br/><br/>
 
         <label>
           Date:
-          <input type="date" value={date} onChange={handleDate}/>
+          <input type="datetime-local" value={date} name="date" onChange={handleDate}/>
         </label><br/><br/>
 
         <label>
           Email:
-          <input type="email" value={email} onChange={handleEmail}/>
+          <input type="email" value={email} name="email" onChange={handleEmail}/>
         </label><br/><br/>
 
         <label>
           File:
-          <input type="file" />
-        </label><br/><br/>
-
-        <label>
-          Hidden:
-          <input type="hidden"/>
-        </label><br/><br/>
-
-        <label>
-          Month:
-          <input type="month"/>
+          <input type="file" value={file} name="file" onChange={handleFile}/>
         </label><br/><br/>
 
         <label>
           Number:
-          <input type="number"/>
+          <input type="number" value={number} name="number" onChange={handleNumber}/>
         </label><br/><br/>
 
         <label>
           Password:
-          <input type="password"/>
+          <input type="password" value={password} name="password" onChange={handlePassword}/>
         </label><br/><br/>
-
+        
+        Radio:<br/>
+        <div>
         <label>
-          Radio:
-          <input type="radio" />
+          Yes:
+          <input type="radio" value="yes" name="choice"/>
+        </label><br/>
+        <label>
+          No:
+          <input type="radio" value="no" name="choice"/>
         </label><br/><br/>
+        </div>
 
         <input type="submit" value="Submit" />
       </form>
